@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
 import openai
+import os
 
 
 app = Flask(__name__)
 
 # Set up OpenAI API credentials
-openai.api_key = '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'
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 
 # Define the default route to return the index.html file
