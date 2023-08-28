@@ -22,7 +22,7 @@ def api():
     # Send the message to OpenAI's API and receive the response
     
     
-    completion = openai.ChatCompletion.create(
+    responses = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": message}
@@ -33,8 +33,8 @@ def api():
         frequency_penalty=0,
         presence_penalty=0.7,
     )
-    if completion.choices[0].message!=None:
-        return completion.choices[0].message
+    if responses.choices[0].message!=None:
+        return responses.choices[0].message
 
     else :
         return 'Failed to Generate response!'
