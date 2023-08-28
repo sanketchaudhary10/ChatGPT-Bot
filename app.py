@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 # Set up OpenAI API credentials
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+openai.api_key = "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"
 
 
 # Define the default route to return the index.html file
@@ -23,10 +23,15 @@ def api():
     
     
     completion = openai.ChatCompletion.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        {"role": "user", "content": message}
-    ]
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": message}
+        ],
+        max_tokens=200,
+        temperature=0.9,
+        top_p=0.9,
+        frequency_penalty=0,
+        presence_penalty=0.7,
     )
     if completion.choices[0].message!=None:
         return completion.choices[0].message
