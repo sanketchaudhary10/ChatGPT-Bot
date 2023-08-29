@@ -19,7 +19,7 @@ def api():
     # Sending message to OpenAI's API and receiving response
     
     
-    responses = openai.Completion.create(
+    responses = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": message}
