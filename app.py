@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-openai.api_key = "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"
+openai.api_key = "Your-secret-key"
 
 
 @app.route("/")
